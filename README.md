@@ -2,6 +2,17 @@
 
 A small django website based on the Twitter Search Api created for a school project at Technical University of Denmark.
 
+## Setup
+
+Before any of the twitter api functions can be used in the website, one has to obtain private access tokens from https://dev.twitter.com/oauth/overview and insert them into **twitter_project/logic/twitterApi.py** on line **10-13**.
+
+```python
+consumer_key        = 'XXXXXXXXXXXXXXXXXXXXXXXXX'
+consumer_secret     = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+access_token_key    = 'XXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+access_token_secret = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+```
+
 ## Documentation
 
 How to run server:
