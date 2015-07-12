@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block js_extra %}
+  <script type="text/javascript" src="{% static 'js/static_happy.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="ui huge header teal center aligned">{{ header_1 }}</h1>
+
+<div class="ui primary inverted segment">
+  <p>Twitter mood project for course <b>02806 Social data analysis and visualization F15</b></p>
+</div>
+  <div id="map-container">
+    <h3 class="ui header teal center aligned">Static Twitter Mood map</h3>
+    <div id="map"></div>
+  </div>
+{{ message }}
+{% endblock %}
+
+{% block content2 %}
+<h1 class="ui huge header purple center aligned">{{ header_2 }}</h1>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Twitter Mood Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Load static variables -->
+    {% load staticfiles %}
+
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
+
+    {% block css %}
+      <link href="{% static 'css/style.css' %}" rel="stylesheet">
+      <link href="{% static 'css/semantic.min.css' %}" rel="stylesheet">
+      <link href="{% static 'css/leaflet.css' %}" rel="stylesheet">
+      <link href="{% static 'css/tooltipster.css' %}" rel="stylesheet">
+    {% endblock css %}
+
+    {% block js %}
+      <script type="text/javascript">
+        function createUrl(path){
+          var pathArray = location.href.split( '/' );
+          var protocol = pathArray[0];
+          var host = pathArray[2];
+          var url = protocol + '//' + host;
+          return url + '/' + path;
+        }
+      </script>
+      <script type="text/javascript" src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/d3.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/d3.layout.cloud.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/jquery.flot.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/jquery.flot.pie.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/jquery.tooltipster.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/leaflet.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/leaflet-src.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    {% endblock js %}
+
+    {% block js_extra %}
+    {% endblock js_extra %}
+
+    <!--IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header id="header">
+      <a href="/" style="width: auto; height: auto; position: absolute;">
+        <img id="twitter-logo" src="{% static 'img/twitter_logo.png' %}" />
+      </a>
+      <!--<div id="social-buttons">
+        <div class="ui facebook button">
+          <i class="facebook icon"></i>
+          Facebook
+        </div>
+        <div class="ui twitter button">
+          <i class="twitter icon"></i>
+          Twitter
+        </div>
+        <div class="ui google plus button">
+          <i class="google plus icon"></i>
+          Google Plus
+        </div>
+      </div>-->
+      <span id="limit-section-header" title="Api request limit is reset every 15 minutes.">Api Request Limits</span>
+      <div id="limit-section" title="Api request limit is reset every 15 minutes."></div>
+      {% block header %}
+
+      {% endblock %}
+
+    </header>
+  <section id="container">
+    <div id="content">
+      <nav id="navigation">
+        <a href="/"><div class="ui inverted yellow button">Frontpage</div></a>
+        <a href="/happy/"><div class="ui inverted green button">Mood Map</div></a>
+        <!--<a href="/static_happy/"><div class="ui inverted green button">Static Mood Map</div></a>-->
+        <a href="/classifier/"><div class="ui inverted blue button">Tweet Classifier</div></a>
+        <a href="/tweets/"><div class="ui inverted orange button">Locate Tweets</div></a>
+        <a href="/weekly_events/"><div class="ui inverted red button">Weekly Events</div></a>
+      </nav>
+      {% block content %}
+        <p>Content 1</p>
+      {% endblock %}
+    </div>
+    <div id="content-2" style="display: none;">
+      {% block content2 %}
+        <p>Content 2</p>
+      {% endblock %}
+    </div>
+  </section> <!-- /container -->
+  <footer id="footer">
+    <!--<div id="social-buttons">
+      <div class="ui circular facebook icon button">
+        <i class="facebook icon"></i>
+      </div>
+      <div class="ui circular twitter icon button">
+        <i class="twitter icon"></i>
+      </div>
+      <div class="ui circular google plus icon button">
+        <i class="google plus icon"></i>
+      </div>
+    </div>-->
+    <div id="footer-text">
+      <h3 class="ui header teal center aligned">Project by</h3>
+      <div class="ui list">
+        <div class="item">
+          <img class="ui avatar image" src="{% static 'img/avatar/daniel.jpg' %}">
+          <div class="content">
+            <a class="header">Rasmus Jensen (s113416)</a>
+            <!--<div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>-->
+          </div>
+        </div>
+        <div class="item">
+          <img class="ui avatar image" src="{% static 'img/avatar/stevie.jpg' %}">
+          <div class="content">
+            <a class="header">Joséphine Robert (s140949)</a>
+            <!--<div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>-->
+          </div>
+        </div>
+        <div class="item">
+          <img class="ui avatar image" src="{% static 'img/avatar/elliot.jpg' %}">
+          <div class="content">
+            <a class="header">Lasse Regin Nielsen (s123815)</a>
+            <!--<div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+    {% block footer %}
+    {% endblock %}
+  </footer>
+  </body>
+</html>

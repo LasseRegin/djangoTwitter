@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block js_extra %}
+  <script type="text/javascript" src="{% static 'js/happy.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="ui huge header teal center aligned">{{ header_1 }}</h1>
+
+<div class="ui primary inverted segment">
+  <p>Twitter mood project for course <b>02806 Social data analysis and visualization F15</b></p>
+</div>
+  <div id="map-container">
+    <h3 class="ui header teal center aligned">Static Twitter Mood map</h3>
+    <h4 class="ui header teal center aligned" style="margin: 0 0 50px 0;">Data taken from the period: <b>13/04/2015</b> - <b>21/04/2015</b></h4>
+    <div id="settings-div">
+      <h2 id="settings" class="ui header" title="This map shows happy/unhappy tweets (green/red) in a radius of 20km of the city center of New York. </br>
+        The tweets are from the period: 13/04/2015 - 21/04/2015, hence it is not recent/live tweets. </br>
+        These tweets were found from the Twitter Api using happy/unhappy smileys as indicators.">
+        <i class="settings inverted icon"></i>
+      </h2>
+    </div>
+    <div id="map"></div>
+    <div id="bar-chart" style="text-align: center; margin: 40px; 0;">
+      <h3 class="ui header teal center aligned" style="margin: 0 0 -20px 0;">Weekly number of unhappy/happy tweets by the week day</h3>
+      <img style="width: 600px; height: auto;" src="{% static 'data/mood_bar_chart.png' %}">
+    </div>
+  </div>
+{{ message }}
+{% endblock %}
+
+{% block content2 %}
+<h1 class="ui huge header purple center aligned">{{ header_2 }}</h1>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

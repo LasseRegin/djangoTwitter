@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block js_extra %}
+  <script type="text/javascript" src="{% static 'js/weekly_events.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="ui huge header teal center aligned">{{ header_1 }}</h1>
+
+<div class="ui primary inverted segment">
+  <p>Twitter mood project for course <b>02806 Social data analysis and visualization F15</b></p>
+</div>
+<div id="map-container">
+  <h2 class="ui header teal center aligned">Weekly Events</h2>
+  <div id="settings-div" class="weekly">
+    <h2 id="settings" class="ui header" title="Here a list of event-related tweets has been extracted from the previous weeks tweets </br>
+      and grouped by occuring week days in tweet text. </br>
+      From this list it is possible to find events happening on specific days of the week.">
+      <i class="settings inverted icon"></i>
+    </h2>
+  </div>
+  <div id="events"></div>
+</div>
+<div id="week-day-menu">
+</div>
+{{ message }}
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

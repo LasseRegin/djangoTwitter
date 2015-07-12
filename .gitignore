@@ -1,0 +1,6 @@
+django.git
+.cache
+.bash_logout
+.bashrc
+.profile
+*.pyc

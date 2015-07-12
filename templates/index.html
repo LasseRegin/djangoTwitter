@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block js_extra %}
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="ui huge header teal center aligned">{{ header_1 }}</h1>
+
+<div class="ui primary inverted segment">
+  <p>Twitter mood project for course <b>02806 Social data analysis and visualization F15</b></p>
+</div>
+
+<h2 class="ui header teal center aligned">Content of website</h2>
+
+<div class="ui inverted segment">
+  <div class="ui inverted relaxed divided list">
+    <div class="item">
+      <div class="content">
+        <a class="header" href="/happy/"><div>Mood Map</div></a>
+        A map showing how the mood in an area is, based on tweets from the period: 13/04/2015 - 21/04/2015.
+      </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <a class="header" href="/classifier/"><div>Tweet mood classifier</div></a>
+        Classifies tweets as happy/unhappy based on user input.
+        This model is based on a <i>Multinomial Naive Bayes</i> classifier and trained on happy/unhappy tweets from the period: <b>13/04/2015</b> - <b>21/04/2015</b> where tweets containing a happy smiley are classified as happy and tweets containing an unhappy smiley are classified as unhappy.
+      </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <a class="header" href="/tweets/"><div>Tweet search/trend map</div></a>
+        A map of New York allowing you to search and locate tweets by the content. Also trends gathered from the Twitter Api is shown and searchable.
+      </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <a class="header" href="/weekly_events/"><div>Weekly events</div></a>
+        A list of tweets containing information about events for different days of the week.
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui inverted segment">
+  <div class="ui inverted relaxed divided list">
+    <h3>Assignment part A - The Video</h3>
+    <p>The video from assignment part A can be viewed <a href="https://drive.google.com/file/d/0Byv_-XO6J0UNaXBRNWlwRmRYOVk/view" target="_blank">here</a></p>
+  </div>
+</div>
+
+{{ message }}
+{% endblock %}
+
+{% block content2 %}
+<h1 class="ui huge header purple center aligned">{{ header_2 }}</h1>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

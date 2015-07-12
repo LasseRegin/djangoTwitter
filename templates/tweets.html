@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block js_extra %}
+  <script type="text/javascript" src="{% static 'js/tweets.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="ui huge header teal center aligned">{{ header_1 }}</h1>
+
+<div class="ui primary inverted segment">
+  <p>Twitter mood project for course <b>02806 Social data analysis and visualization F15</b></p>
+</div>
+  <div id="map-container">
+    <h3 class="ui header teal center aligned">Tweet map</h3>
+    <div id="trend-cloud"></div>
+    <div id="trend-list-header" class="ui header blue">Trends</div>
+    <div id="trend-list"></div>
+    <div id="input">
+      <form id="tweets-form">
+        <div class="ui form">
+          <div class="field">
+            <div class="ui pointing below language label"><label style="cursor:pointer;" for="tweet-text">Tweet Content</label></div>
+            <h2 id="settings" class="ui header" title="Here you can search for tweets in New York tweeted within the last 5 hours.">
+              <i class="settings inverted icon"></i>
+            </h2>
+            <input id="tweet-text"></input>
+            <div class="ui submit button" style="display: block; margin: auto; margin: 10px auto; width: 100px;">Search</div>
+            <div id="result-message"></div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="map"></div>
+  </div>
+{{ message }}
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

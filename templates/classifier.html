@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block js_extra %}
+  <script type="text/javascript" src="{% static 'js/classifier.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="ui huge header teal center aligned">{{ header_1 }}</h1>
+
+<div class="ui primary inverted segment">
+  <p>Twitter mood project for course <b>02806 Social data analysis and visualization F15</b></p>
+</div>
+  <div id="map-container">
+    <h3 class="ui header teal center aligned">Classifier</h3>
+    <div id="input">
+      <form id="classifier-form">
+        <div class="ui form">
+          <div class="field">
+            <div class="ui pointing below language label">
+              <label style="cursor:pointer;" for="tweet-text">Tweet Content</label>
+              </div>
+            <h2 id="settings" class="ui header" title="This classifier is based on a Multinomial Naive Bayes model. </br>
+            The model parameters were tuned using 10-fold cross-validation.">
+              <i class="settings inverted icon"></i>
+            </h2>
+            <input id="tweet-text"></input>
+            <div class="ui submit button" style="display: block; margin: auto; margin: 10px auto; width: 100px;">Classify</div>
+            <div id="result-message"></div>
+            <h1 id="result-plot-header" class="ui huge header teal center aligned"></h1>
+            <div id="result-plot"></div>
+            <div id="tuning-div">
+              <h3 class="ui header teal center aligned">Mean cross-validation prediction error for different parameters</h3>
+              <div id="left">
+                <img id="pred-error" src="{% static 'data/pred_error_cv.svg' %}" onerror="this.onerror=null; this.src='{% static 'data/pred_error_cv.png' %}'">
+              </div>
+              <div id="right">
+                <img id="pred-error-3d" src="{% static 'data/pred_error_cv_3d.svg' %}" onerror="this.onerror=null; this.src='{% static 'data/pred_error_cv_3d.png' %}'">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{{ message }}
+{% endblock %}
+
+{% block content2 %}
+<h1 class="ui huge header purple center aligned">{{ header_2 }}</h1>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
